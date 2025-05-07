@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Homepage</title>
+    <style>
+        :root {
+            --dark-purple: #2D1B40;
+            --mid-purple: #533A71;
+            --light-purple: #8A6DB1;
+            --accent-purple: #B191D3;
+            --white: #F8F8FF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-purple);
+            color: var(--white);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .time-widget {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        .date-widget {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--accent-purple);
+        }
+        
+        .quote-container {
+            background-color: var(--mid-purple);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quote {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .quote-author {
+            text-align: right;
+            color: var(--accent-purple);
+        }
+        
+        .search-container {
+            margin-bottom: 2.5rem;
+            width: 100%;
+        }
+        
+        .search-box {
+            display: flex;
+            width: 100%;
+        }
+        
+        .search-input {
+            flex-grow: 1;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+        
+        .search-button {
+            padding: 1rem 1.5rem;
+            border: none;
+            background-color: var(--light-purple);
+            color: var(--white);
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background-color: var(--accent-purple);
+        }
+        
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .link-card {
+            background-color: var(--mid-purple);
+            border-radius: 10px;
+            padding: 1.5rem;
+            width: 150px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--white);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            background-color: var(--light-purple);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .link-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+        }
+        
+        .link-title {
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .quick-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .link-card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="time-widget" id="clock">00:00:00</div>
+        <div class="date-widget" id="date">Loading date...</div>
+        
+        <div class="quote-container">
+            <p class="quote" id="quote">Loading today's inspiration...</p>
+            <p class="quote-author" id="author"></p>
+        </div>
+        
+        <div class="search-container">
+            <form action="https://duckduckgo.com/" method="GET" class="search-box">
+                <input type="text" name="q" class="search-input" placeholder="Search with DuckDuckGo..." autocomplete="off">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>
+        
+        <div class="quick-links">
+            <a href="https://youtube.com" class="link-card">
+                <div class="link-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                    </svg>
+                </div>
+                <div class="link-title">YouTube</div>
+            </a>
+            <a href="https://github.com" class="link-card">
+                <div class="link-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </div>
+                <div class="link-title">GitHub</div>
+            </a>
+            <a href="https://wiki.archlinux.org" class="link-card">
+                <div class="link-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 65 65" fill="currentColor">
+                        <path d="M32.253 0.20991c-2.849 6.9843-4.579 11.559-7.75 18.336 1.944 2.061 4.334 4.453 8.211 7.164-4.168-1.715-7.009-3.432-9.133-5.219-4.059 8.47-10.423 20.531-23.328 43.719 10.14-5.854 18.002-9.466 25.328-10.844-0.314-1.351-0.481-2.819-0.469-4.344l0.008-0.32c0.161-6.498 3.542-11.495 7.547-11.156 4.004 0.339 7.122 5.884 6.961 12.383-0.031 1.224-0.173 2.4-0.414 3.492 7.247 1.418 15.034 5.013 25.039 10.789-1.973-3.632-3.74-6.905-5.422-10.024-2.649-2.053-5.411-4.724-11.047-7.617 3.874 1.007 6.65 2.171 8.812 3.469-17.098-31.835-18.48-36.068-24.343-49.828v-0.00009zm-5.953 62.566c-0.642 1.576-1.027 2.53-1.027 2.53l-0.619-1.134c0.907-0.024 1.505-0.7 1.646-1.396z"/>
+                    </svg>
+                </div>
+                <div class="link-title">Arch Wiki</div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Update clock
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+            
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('date').textContent = now.toLocaleDateString(undefined, options);
+        }
+        
+        setInterval(updateClock, 1000);
+        updateClock();
+        
+        // Quotes array
+        const quotes = [
+            { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+            { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
+            { text: "Simplicity is the ultimate sophistication.", author: "Leonardo da Vinci" },
+            { text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb" },
+            { text: "Your time is limited, don't waste it living someone else's life.", author: "Steve Jobs" },
+            { text: "Everything you can imagine is real.", author: "Pablo Picasso" },
+            { text: "The journey of a thousand miles begins with one step.", author: "Lao Tzu" },
+            { text: "The only limit to our realization of tomorrow is our doubts of today.", author: "Franklin D. Roosevelt" }
+        ];
+        
+        // Get random quote for the day based on date
+        function getDailyQuote() {
+            const today = new Date();
+            const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+            const index = seed % quotes.length;
+            return quotes[index];
+        }
+        
+        // Set daily quote
+        const dailyQuote = getDailyQuote();
+        document.getElementById('quote').textContent = `"${dailyQuote.text}"`;
+        document.getElementById('author').textContent = `— ${dailyQuote.author}`;
+    </script>
+</body>
+</html>
